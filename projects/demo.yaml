@@ -40,7 +40,7 @@ spec:
   generators:
   - git:
       directories:
-      - path: apps/demo/*
+      - path: apps/demo-2/*
       repoURL: https://github.com/amazingandyyy/argo-playground.git
       revision: HEAD
   template:
