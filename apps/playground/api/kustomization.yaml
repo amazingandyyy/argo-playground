@@ -7,3 +7,8 @@ resources:
 - ingress.yaml
 - service.yaml
 - rollout.yaml
+
+# override image tag from blue to gree
+images:
+  - name: argoproj/rollouts-demo
+    newTag: blue
