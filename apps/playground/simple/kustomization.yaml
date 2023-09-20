@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: playground
 
 resources:
-- ingress.yaml
+# - ingress.yaml
 - service.yaml
 - rollout.yaml
 - istio/
