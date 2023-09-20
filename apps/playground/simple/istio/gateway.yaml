@@ -11,4 +11,4 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - istio-playground.api.argoproj.io
+    - istio-playground.argoproj.io

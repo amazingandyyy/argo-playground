@@ -4,7 +4,7 @@ metadata:
   name: api
 spec:
   hosts:
-  - istio-playground.api.argoproj.io
+  - istio-playground.argoproj.io
   gateways:
   - playground-gateway
   http:
