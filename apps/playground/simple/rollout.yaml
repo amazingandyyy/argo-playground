@@ -37,8 +37,13 @@ spec:
       scaleDownDelaySeconds: 3600
       scaleDownDelayRevisionLimit: 1
       trafficRouting:
-        nginx:
-          stableIngress: api-ingress
+        # nginx:
+        #   stableIngress: api-ingress
+        istio:
+          virtualService:
+            name: api-vsvc
+            routes:
+              - primary
       steps:
       - setWeight: 20
       - setCanaryScale: # scale replicaset to 100% with only 20% traffic

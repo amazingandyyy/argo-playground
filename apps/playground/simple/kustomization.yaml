@@ -7,6 +7,7 @@ resources:
 # - ingress.yaml
 - service.yaml
 - rollout.yaml
+- virtualservice.yaml
 
 # override image tag from blue to gree
 images:
