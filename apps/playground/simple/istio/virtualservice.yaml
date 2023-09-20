@@ -4,9 +4,9 @@ metadata:
   name: api
 spec:
   hosts:
-  - istio-playground.argoproj.io
+    - istio-playground.argoproj.io
   gateways:
-  - playground-gateway
+    - playground-gateway
   http:
   - name: primary # referenced in canary.trafficRouting.istio.virtualService.routes
     route:
