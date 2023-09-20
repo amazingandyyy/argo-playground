@@ -12,4 +12,4 @@ resources:
 # override image tag from blue to gree
 images:
   - name: argoproj/rollouts-demo
-    newTag: green
+    newTag: blue
