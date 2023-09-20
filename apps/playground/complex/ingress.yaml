@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: backend
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: canary-gatekeeper.argoproj.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: stable-gatekeeper-complex
+            port:
+              name: http
+  - host: canary-one.argoproj.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: stable-one-complex
+            port:
+              name: http
+  - host: canary-two.argoproj.io
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: stable-two-complex
+              port:
+                name: http
+  - host: canary-three.argoproj.io
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: stable-three-complex
+              port:
+                name: http

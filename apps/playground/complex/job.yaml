@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-027
+  annotations:
+#    argocd.argoproj.io/sync-options: Prune=true
+#    argocd.argoproj.io/hook: Sync
+#    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-wave: '90'
+spec:
+  template:
+    metadata:
+      name: job-027
+    spec:
+      containers:
+        - name: test
+          image: alpine:latest
+          command:
+            - "bin/sh"
+            - "-c"
+            - "for i in 1 2 3 4 5 6 7 ; do echo $i ; done"
+      restartPolicy: Never

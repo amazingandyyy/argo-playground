@@ -1,0 +1,23 @@
+- op: replace
+  path: /metadata/annotations/argocd.argoproj.io~1sync-wave
+  value: 90
+- op: replace
+  path: /spec/strategy/canary/stableService
+  value: stable-gatekeeper-complex
+- op: replace
+  path: /spec/strategy/canary/canaryService
+  value: preview-gatekeeper-complex
+- op: replace
+  path: /spec/strategy/canary
+  value:
+    maxSurge: 25%
+    maxUnavailable: 0
+    steps:
+      - setWeight: 90
+      - pause: {}
+- op: replace
+  path: /spec/template/metadata/labels/app.kubernetes.io~1name
+  value: gatekeeper
+- op: replace
+  path: /spec/selector/matchLabels/app.kubernetes.io~1name
+  value: gatekeeper

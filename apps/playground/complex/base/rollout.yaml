@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: backend
+  annotations:
+    argocd.argoproj.io/sync-wave: '100'
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  rollbackWindow:
+    revisions: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: backend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: backend
+    spec:
+      containers:
+      - name: backend
+        image: image_name
+        imagePullPolicy: IfNotPresent
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        resources:
+          requests:
+            memory: 32Mi
+            cpu: 5m
+  strategy:
+    canary:
+      canaryService: preview
+      stableService: stable
+      scaleDownDelaySeconds: 3600
+      scaleDownDelayRevisionLimit: 1
+      maxSurge: 25%
+      maxUnavailable: 0
+      trafficRouting:
+        nginx:
+          stableIngress: backend-complex
+      steps:
+      - setWeight: 10
+      - setWeight: 90
