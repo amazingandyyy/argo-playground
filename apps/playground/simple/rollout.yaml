@@ -41,7 +41,7 @@ spec:
         #   stableIngress: api-ingress
         istio:
           virtualService:
-            name: api-vsvc
+            name: api
             routes:
               - primary
       steps:

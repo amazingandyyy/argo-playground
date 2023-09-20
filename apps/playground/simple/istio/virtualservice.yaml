@@ -1,12 +1,12 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: api-vsvc
+  name: api
 spec:
-  gateways:
-  - istio-ingressgateway
   hosts:
   - istio-playground.api.argoproj.io
+  gateways:
+  - playground-gateway
   http:
   - name: primary # referenced in canary.trafficRouting.istio.virtualService.routes
     route:
