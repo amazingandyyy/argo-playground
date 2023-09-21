@@ -1,0 +1,7 @@
+- op: add
+  path: /spec/template/metadata/annotations
+  value:
+    traffic.sidecar.istio.io/includeInboundPorts: ""
+    traffic.sidecar.istio.io/excludeInboundPorts: "80,443"
+    traffic.sidecar.istio.io/excludeOutboundIPRanges: ""
+    sidecar.istio.io/inject: 'true'

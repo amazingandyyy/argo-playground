@@ -4,10 +4,11 @@ kind: Kustomization
 namespace: playground
 
 resources:
-# - ingress.yaml
-- service.yaml
+- istio/gateway.yaml
+- istio/virtual-service.yaml
+- nginx-ingress/virtual-server.yaml
 - rollout.yaml
-- istio/
+- service.yaml
 
 # override image tag from blue to gree
 images:

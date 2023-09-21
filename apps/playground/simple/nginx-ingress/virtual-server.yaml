@@ -1,0 +1,22 @@
+# https://docs.nginx.com/nginx-ingress-controller/tutorials/nginx-ingress-istio/
+apiVersion: k8s.nginx.org/v1
+kind: VirtualServer
+metadata:
+  name: api
+spec:
+  host: nginxinc-playground.argoproj.io
+  ingressClassName: nginx
+  upstreams:
+  - name: stable
+    service: api-stable
+    port: 80
+    use-cluster-ip: true
+  routes:
+  - path: /
+    action:
+      proxy:
+        upstream: stable
+        requestHeaders:
+          set:
+          - name: Host
+            value: api-stable.playground.svc.cluster.local

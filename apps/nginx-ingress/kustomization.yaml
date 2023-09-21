@@ -1,13 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-#helmCharts:
-#  - name: ingress-nginx
-#    repo: https://kubernetes.github.io/ingress-nginx
-#    version: 4.7.1
-#    releaseName: ingress-nginx
-#    namespace: ingress-nginx
-#    valuesFile: values.yaml
+namespace: nginx-ingress
 
 resources:
   - ./rbac/rbac.yaml
@@ -20,3 +14,6 @@ resources:
   - ./common/crds/k8s.nginx.org_policies.yaml
   - ./deployment/nginx-ingress.yaml
   - ./service/loadbalancer.yaml
+
+components:
+  - istio-integration

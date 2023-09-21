@@ -13,7 +13,6 @@ spec:
       labels:
         app: nginx-ingress
         app.kubernetes.io/name: nginx-ingress
-     #annotations:
        #prometheus.io/scrape: "true"
        #prometheus.io/port: "9113"
        #prometheus.io/scheme: http

@@ -5,10 +5,10 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: playground.api.argoproj.io
+  - host: nginxinc-playground.api.argoproj.io
     http:
       paths:
-      - path: /
+      - path: /api
         pathType: Prefix
         backend:
           service:

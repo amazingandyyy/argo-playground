@@ -1,12 +1,15 @@
+# https://istio.io/latest/docs/reference/config/networking/virtual-service/
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: api
 spec:
   hosts:
-    - istio-playground.argoproj.io
-  gateways:
-    - playground-gateway
+    - api-stable.playground.svc.cluster.local
+  # hosts:
+  #   - istio-playground.argoproj.io
+  # gateways:
+  #   - playground-gateway
   http:
   - name: primary # referenced in canary.trafficRouting.istio.virtualService.routes
     route:
