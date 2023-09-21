@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+#helmCharts:
+#  - name: ingress-nginx
+#    repo: https://kubernetes.github.io/ingress-nginx
+#    version: 4.7.1
+#    releaseName: ingress-nginx
+#    namespace: ingress-nginx
+#    valuesFile: values.yaml
+
+resources:
+  - ./rbac/rbac.yaml
+  - ./common/ns-and-sa.yaml
+  - ./common/nginx-config.yaml
+  - ./common/ingress-class.yaml
+  - ./common/crds/k8s.nginx.org_virtualservers.yaml
+  - ./common/crds/k8s.nginx.org_virtualserverroutes.yaml
+  - ./common/crds/k8s.nginx.org_transportservers.yaml
+  - ./common/crds/k8s.nginx.org_policies.yaml
+  - ./deployment/nginx-ingress.yaml
+  - ./service/loadbalancer.yaml
