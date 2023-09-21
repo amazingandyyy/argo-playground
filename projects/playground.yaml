@@ -61,10 +61,12 @@ spec:
       destination:
         namespace: playground
         server: https://kubernetes.default.svc
+      ignoreDifferences:
+        - group: networking.istio.io
+          kind: VirtualService
+          jqPathExpressions:
+            - .spec.http[].route[].weight
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
-        # automated:
-        #   allowEmpty: true
-        #   prune: true
-        #   selfHeal: true
+          - RespectIgnoreDifferences=true
