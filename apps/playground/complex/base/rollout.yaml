@@ -6,9 +6,6 @@ metadata:
     argocd.argoproj.io/sync-wave: '100'
 spec:
   replicas: 1
-  revisionHistoryLimit: 1
-  rollbackWindow:
-    revisions: 1
   selector:
     matchLabels:
       app.kubernetes.io/component: backend
@@ -31,15 +28,8 @@ spec:
             cpu: 5m
   strategy:
     canary:
-      canaryService: preview
-      stableService: stable
-      scaleDownDelaySeconds: 3600
-      scaleDownDelayRevisionLimit: 1
       maxSurge: 25%
       maxUnavailable: 0
-      trafficRouting:
-        nginx:
-          stableIngress: backend-complex
       steps:
-      - setWeight: 10
-      - setWeight: 90
+        - setWeight: 10
+        - setWeight: 90
