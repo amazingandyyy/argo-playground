@@ -15,4 +15,5 @@ patches:
       kind: Rollout
 
 components:
-  - fast-rollback-with-istio
+  - with-istio
+#  - fast-rollback-with-istio
