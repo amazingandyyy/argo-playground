@@ -9,6 +9,8 @@ resources:
   - one
   - two
   - three
+# handle istioproxy with jobs
+# https://medium.com/redbox-techblog/handling-istio-sidecars-in-kubernetes-jobs-c392661c4af7
   - job.yaml
 
 images:
