@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: playground
 
 resources:
-- istio/gateway.yaml
+# - istio/gateway.yaml
 - istio/virtual-service.yaml
 - nginx-ingress/virtual-server.yaml
 - rollout.yaml
