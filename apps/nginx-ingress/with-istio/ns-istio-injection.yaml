@@ -1,4 +1,4 @@
 - op: add
   path: /metadata/labels
   value:
-    istio-injection: enabled
+    istio.io/rev: v1-19-0

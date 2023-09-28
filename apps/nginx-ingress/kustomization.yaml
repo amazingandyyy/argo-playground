@@ -15,5 +15,5 @@ resources:
   - ./deployment/nginx-ingress.yaml
   - ./service/loadbalancer.yaml
 
-#components:
-#  - istio-integration
+components:
+  - with-istio
