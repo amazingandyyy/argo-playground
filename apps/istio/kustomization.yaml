@@ -20,9 +20,9 @@ helmCharts:
     namespace: istio-system
     includeCRDs: true
     valuesFile: values.yaml
-  - name: gateway
-    repo: https://istio-release.storage.googleapis.com/charts
-    version: 1.19.0
-    releaseName: istio-ingressgateway
-    namespace: istio-ingress
-    includeCRDs: true
+  # - name: gateway
+  #   repo: https://istio-release.storage.googleapis.com/charts
+  #   version: 1.19.0
+  #   releaseName: istio-ingressgateway
+  #   namespace: istio-ingress
+  #   includeCRDs: true
