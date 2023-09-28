@@ -18,7 +18,7 @@ spec:
       labels:
         app.kubernetes.io/component: api
         app.kubernetes.io/name: app
-        sidecar.istio.io/inject: "true"
+        istio.io/rev: v1-19-0
     spec:
       containers:
       - name: api
