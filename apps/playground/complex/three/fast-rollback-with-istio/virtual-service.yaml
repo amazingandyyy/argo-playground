@@ -1,0 +1,17 @@
+# https://istio.io/latest/docs/reference/config/networking/virtual-service/
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: playground
+spec:
+  hosts:
+    - stable-three-complex.playground.svc.cluster.local
+  http:
+  - name: primary # referenced in canary.trafficRouting.istio.virtualService.routes
+    route:
+    - destination:
+        host: stable-three-complex # referenced in canary.stableService
+      weight: 100
+    - destination:
+        host: preview-three-complex # referenced in canary.canaryService
+      weight: 0

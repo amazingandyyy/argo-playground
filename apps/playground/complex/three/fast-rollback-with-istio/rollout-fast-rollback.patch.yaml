@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: backend
+spec:
+  revisionHistoryLimit: 1
+  rollbackWindow:
+    revisions: 1
+  strategy:
+    canary:
+      canaryService: preview-three-complex
+      stableService: stable-three-complex
+      scaleDownDelaySeconds: 3600
+      scaleDownDelayRevisionLimit: 1
+      trafficRouting:
+        istio:
+          virtualService:
+            name: playground-three-complex
+            routes:
+              - primary

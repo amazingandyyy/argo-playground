@@ -13,3 +13,6 @@ patches:
   - path: rollout.patch.yaml
     target:
       kind: Rollout
+
+components:
+  - fast-rollback-with-istio
