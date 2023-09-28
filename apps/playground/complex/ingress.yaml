@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: backend
 spec:
-  ingressClassName: nginxinc-ingress
+  ingressClassName: nginx
   rules:
   - host: canary-gatekeeper.argoproj.io
     http:
