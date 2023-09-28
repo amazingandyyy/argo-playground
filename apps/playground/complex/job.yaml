@@ -7,7 +7,8 @@ metadata:
 #    argocd.argoproj.io/hook: Sync
 #    argocd.argoproj.io/hook-delete-policy: HookSucceeded
     argocd.argoproj.io/sync-wave: '90'
-    sidecar.istio.io/inject: "false"
+  labels:
+    sidecar.istio.io/inject: 'false'
 spec:
   template:
     metadata:
