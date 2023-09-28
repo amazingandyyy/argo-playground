@@ -4,7 +4,11 @@ kind: Kustomization
 namespace: playground
 
 resources:
-  - ./canary
+  - https://raw.githubusercontent.com/yohanb/argo-rollouts-examples/main/apps/prototype/canary/namespace.yaml
+  - https://raw.githubusercontent.com/yohanb/argo-rollouts-examples/main/apps/prototype/canary/service.yaml
+  - https://raw.githubusercontent.com/yohanb/argo-rollouts-examples/main/apps/prototype/canary/rollout.yaml
+  - https://raw.githubusercontent.com/yohanb/argo-rollouts-examples/main/apps/prototype/canary/istio-virtual-service.yaml
+  - https://raw.githubusercontent.com/yohanb/argo-rollouts-examples/main/apps/prototype/canary/nginx-virtual-server.yaml
 
 images:
   - name: ybelval/rollouts-demo
