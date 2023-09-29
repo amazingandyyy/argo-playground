@@ -28,3 +28,11 @@ helmCharts:
   #   releaseName: istio-ingressgateway
   #   namespace: istio-ingress
   #   includeCRDs: true
+  #  - name: kiali-server
+  #    repo: https://kiali.org/helm-charts
+  #    version: 1.74.0
+  #    releaseName: kiali-server
+  #    namespace: istio-system
+  #    valuesInline:
+  #      auth:
+  #        strategy: "anonymous"
