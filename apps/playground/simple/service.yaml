@@ -10,7 +10,7 @@ spec:
     name: http
   selector:
     app.kubernetes.io/component: api
-    app.kubernetes.io/name: app
+    app.kubernetes.io/name: simple
 ---
 apiVersion: v1
 kind: Service
@@ -24,4 +24,4 @@ spec:
       name: http
   selector:
     app.kubernetes.io/component: api
-    app.kubernetes.io/name: app
+    app.kubernetes.io/name: simple

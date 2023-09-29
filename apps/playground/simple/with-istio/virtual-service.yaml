@@ -5,17 +5,13 @@ metadata:
   name: api
 spec:
   hosts:
-    - api-stable.playground.svc.cluster.local
-  # hosts:
-  #   - istio-playground.argoproj.io
-  # gateways:
-  #   - playground-gateway
+    - api-stable-simple.playground.svc.cluster.local
   http:
   - name: primary # referenced in canary.trafficRouting.istio.virtualService.routes
     route:
     - destination:
-        host: api-stable # referenced in canary.stableService
+        host: api-stable-simple # referenced in canary.stableService
       weight: 100
     - destination:
-        host: api-preview # referenced in canary.canaryService
+        host: api-preview-simple # referenced in canary.canaryService
       weight: 0

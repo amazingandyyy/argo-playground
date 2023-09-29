@@ -4,11 +4,11 @@ kind: VirtualServer
 metadata:
   name: api
 spec:
-  host: nginxinc-playground.argoproj.io
+  host: simple.playground.argoproj.io
   ingressClassName: nginx
   upstreams:
   - name: stable
-    service: api-stable
+    service: api-stable-simple
     port: 80
     use-cluster-ip: true
   routes:
@@ -19,4 +19,4 @@ spec:
         requestHeaders:
           set:
           - name: Host
-            value: api-stable.playground.svc.cluster.local
+            value: api-stable-simple.playground.svc.cluster.local

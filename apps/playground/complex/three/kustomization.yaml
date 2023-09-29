@@ -1,8 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-nameSuffix: -three
-
 commonLabels:
   app.kubernetes.io/name: three
 
@@ -17,3 +15,5 @@ patches:
 components:
   - with-istio
 #  - fast-rollback-with-istio
+
+nameSuffix: -three

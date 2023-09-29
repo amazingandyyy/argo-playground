@@ -1,14 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namePrefix: simple-
-
 namespace: playground
 
 resources:
-# - istio/gateway.yaml
-- istio/virtual-service.yaml
-- nginx-ingress/virtual-server.yaml
 - rollout.yaml
 - service.yaml
 
@@ -16,3 +11,9 @@ resources:
 images:
   - name: argoproj/rollouts-demo
     newTag: green
+
+components:
+  - with-istio
+  - fast-rollback-with-istio
+
+nameSuffix: -simple

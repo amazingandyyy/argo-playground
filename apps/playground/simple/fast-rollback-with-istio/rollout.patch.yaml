@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: api
+spec:
+  revisionHistoryLimit: 1
+  rollbackWindow:
+    revisions: 1
+  strategy:
+    canary:
+      canaryService: api-preview-simple
+      stableService: api-stable-simple
+      scaleDownDelaySeconds: 3600
+      scaleDownDelayRevisionLimit: 1
+      trafficRouting:
+        istio:
+          virtualService:
+            name: api-simple
+            routes:
+              - primary
