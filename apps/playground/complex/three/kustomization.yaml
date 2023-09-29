@@ -14,6 +14,6 @@ patches:
 
 components:
   - with-istio
-#  - fast-rollback-with-istio
+  - fast-rollback-with-istio
 
 nameSuffix: -three
